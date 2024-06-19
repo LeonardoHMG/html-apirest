@@ -48,6 +48,19 @@ def create_app(config_name):
        conn.close()
        return jsonify(result)
    
+    @app.route("/monitoramento/graficomedidor", methods=["GET"])
+    def GraficoMedidor():
+        conn = db_connect.connect()
+        query = conn.execute(
+            text(
+                "SELECT ROUND(AVG(temperatura),0) as Med_Temperatura, ROUND(AVG(umidade),0) as Med_Umidade, ROUND(AVG(luminosidade),0) as Med_Luminosidade FROM MONITORAMENTO "
+            )
+        )
+        conn.commit()
+        result = [dict(zip(tuple(query.keys()), i)) for i in query.cursor]
+        conn.close()
+        return jsonify(result)
+   
     @app.route('/monitoramento', methods=['POST', 'GET', 'DELETE', 'PUT'])
     def monitoramento():
         # origin = request.headers.get('Origin')

@@ -31,6 +31,8 @@ function drawPieChart() {
 
     let options = {
       title: "Gráfico Pizza - Totalização de Registro por Dispositivo",
+      width: 700,
+      height: 200
     };
 
     let chart = new google.visualization.PieChart(

@@ -41,7 +41,7 @@ function drawLineChart() {
       fontName: 'Arial',
       fontSize: 14,
       areaOpacity: 0.2,
-      legend: { position: 'top', textStyle: { fontSize: 16 } },
+      legend: { position: 'top', textStyle: { fontSize: 14 } },
     };
 
     let chart = new google.visualization.LineChart(
