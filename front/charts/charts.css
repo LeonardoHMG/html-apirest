@@ -108,16 +108,6 @@ header {
   font-size: 14px;
 }
 
-.tabelaRegistros h3 {
-  padding: 10px;
-  font-size: 15px;
-}
-
-.table-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 5px;
-}
 
 .item-menu-mobile {
   display: flex;
@@ -143,41 +133,23 @@ header {
 }
 
 .charts {
-  display: none;
-  overflow-x: auto;
-}
-
-.select-chart {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  gap: 0.2em;
+  gap: 20px;
 }
 
-.chart-description > p {
-  font-size: 1em;
-  font-weight: bold;
-}
-
-.chart-description > span {
-  font-size: 0.7em;
-  color: #c9c7c7;
-  font-weight: 500;
-}
-
-.chart-options {
+.charts {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  overflow: auto;
 }
-
-.chart-option {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
-}
-
-.chart-option input[type="radio"] {
-  margin-right: 5px;
+.charts iframe {
+  width: 100%;
+  height: 250px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
 }
 
 @media screen and (min-width: 768px) {
@@ -187,21 +159,6 @@ header {
 
   .content {
     width: 80%;
-  }
-
-  .select-chart {
-    flex-direction: row;
-    justify-content: start;
-    gap: 1em;
-  }
-
-  .chart-options {
-    flex-direction: row;
-  }
-
-  .chart-option {
-    margin-right: 10px;
-    margin-bottom: 0;
   }
 }
 

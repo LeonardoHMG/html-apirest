@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <title>Projeto Monitoramento - Fatec Taquaritinga</title>
-    <link rel="stylesheet" href="charts.css" />
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
     />
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="charts.js"></script>
+    <script src="script.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/all.min.js"></script>
   </head>
   <body>
@@ -48,10 +47,11 @@
         <hr class="sidebar-divisor" />
         <div class="item-menu">
           <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-          <a href="charts.html"><i class="fa-solid fa-chart-simple"></i> Gráficos</a>
+          <a href="charts/charts.html"><i class="fa-solid fa-chart-simple"></i> Gráficos</a>
           <a href="#"><i class="fa-solid fa-file"></i> Relatórios</a>
           <a href="#" class="logout"
-            ><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            ><i class="fa-solid fa-right-from-bracket"></i> Logout</a
+          >
         </div>
         <br />
       </div>
@@ -62,7 +62,7 @@
           <div class="item-menu-mobile">
             <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
 
-            <a href="charts.html"><i class="fa-solid fa-chart-simple"></i> Gráficos</a>
+            <a href="charts/charts.html"><i class="fa-solid fa-chart-simple"></i> Gráficos</a>
 
             <a href="#"><i class="fa-solid fa-file"></i> Relatórios</a>
 
@@ -78,37 +78,30 @@
           <br>
           <hr />
           <br>
-          <p><i class="fa-solid fa-chart-simple"></i> / Gráficos</p>
+          <p><i class="fa-solid fa-house"></i> / Home</p>
         </div>
 
-        <div class="select-chart">
-          <div class="chart-description">
-            <p>Agregação dos Dados por Dispositivo</p>
-           <span>Selecione o tipo do gráfico:</span>
+        <div class="tabelaRegistros">
+          <div class="table-header">
+            <h3>Últimas 20 medições:</h3>
+            <input type="text" placeholder="Pesquisar..." id="inputPesquisa" />
           </div>
-          <div class="chart-options">
-            <div class="chart-option">
-              <input type="radio" id="pie-chart" name="chart-type" value="pie">
-              <label for="pie-chart">Gráfico de Pizza</label>
-            </div>
-      
-            <div class="chart-option">
-              <input type="radio" id="bar-chart" name="chart-type" value="bar">
-              <label for="bar-chart">Gráfico de Barras</label>
-            </div>
-      
-            <div class="chart-option">
-              <input type="radio" id="area-chart" name="chart-type" value="area">
-              <label for="area-chart">Gráfico de Área</label>
-            </div>
+          <div class="table-responsive">
+            <table class="bootstrap-style-table" id="tabelaMonitoramento">
+              <thead>
+                <th class="alignItensColumn">#</th>
+                <th class="alignItensColumn">Temperatura</th>
+                <th class="alignItensColumn">Umidade</th>
+                <th class="alignItensColumn">Luminosidade</th>
+                <th class="alignItensColumn">Presença</th>
+                <th class="alignItensColumn">Distância</th>
+                <th class="alignItensColumn">Dispositivo</th>
+              </thead>
+              <tbody></tbody>
+            </table>
           </div>
         </div>
-
-        <div class="charts">
-          <div id="chart_div"></div>
-          <div id="barchart_div"></div>
-          <div id="areachart_div"></div>
-        </div>
+      </div>
     </section>
   </body>
 </html>

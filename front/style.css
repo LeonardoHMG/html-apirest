@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 html,
@@ -90,7 +90,9 @@ header {
   background-color: rgb(245, 245, 245);
 }
 
-.titulo-secao, .tabelaRegistros, .sidebar-mobile {
+.titulo-secao,
+.tabelaRegistros,
+.sidebar-mobile {
   background-color: #fff;
   border-radius: 10px;
   padding: 15px;
@@ -128,7 +130,8 @@ header {
   border-collapse: collapse;
   width: 100%;
 }
-.bootstrap-style-table th, .bootstrap-style-table td {
+.bootstrap-style-table th,
+.bootstrap-style-table td {
   border: 1px solid #dddddd;
   padding: 5px;
   width: 5%;
@@ -175,7 +178,6 @@ header {
   .sidebar-mobile {
     display: none;
   }
-
   .content {
     width: 80%;
   }
