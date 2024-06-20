@@ -21,15 +21,46 @@ def create_app(config_name):
     app.config.from_object(app_config[config_name])
     app.config.from_pyfile('config.py')
 
-    @app.route('/monitoramento/grafico1', methods=['GET'])
-    def TotalizacaoRegistro():
+    @app.route('/monitoramento/graficopizza', methods=['GET'])
+    def TotalizacaoRegistroGraficoPizza():
        conn = db_connect.connect()
        query = conn.execute(text('SELECT dispositivo, COUNT(dispositivo) as TotalRegistros FROM monitoramento GROUP BY dispositivo limit 20'))
        conn.commit()
        result = [dict(zip(tuple(query.keys()), i)) for i in query.cursor]
        conn.close()
        return jsonify(result)
-
+    
+    @app.route('/monitoramento/graficobarra', methods=['GET'])
+    def TotalizacaoRegistroGraficoBarra():
+       conn = db_connect.connect()
+       query = conn.execute(text('SELECT dispositivo, COUNT(dispositivo) as TotalRegistros FROM monitoramento GROUP BY dispositivo limit 20'))
+       conn.commit()
+       result = [dict(zip(tuple(query.keys()), i)) for i in query.cursor]
+       conn.close()
+       return jsonify(result)
+    
+    @app.route('/monitoramento/graficolinhas', methods=['GET'])
+    def TotalizacaoRegistroGraficoLinhas():
+       conn = db_connect.connect()
+       query = conn.execute(text('SELECT dispositivo, COUNT(dispositivo) as TotalRegistros FROM monitoramento GROUP BY dispositivo limit 20'))
+       conn.commit()
+       result = [dict(zip(tuple(query.keys()), i)) for i in query.cursor]
+       conn.close()
+       return jsonify(result)
+   
+    @app.route("/monitoramento/graficomedidor", methods=["GET"])
+    def GraficoMedidor():
+        conn = db_connect.connect()
+        query = conn.execute(
+            text(
+                "SELECT ROUND(AVG(temperatura),0) as Med_Temperatura, ROUND(AVG(umidade),0) as Med_Umidade, ROUND(AVG(luminosidade),0) as Med_Luminosidade FROM MONITORAMENTO "
+            )
+        )
+        conn.commit()
+        result = [dict(zip(tuple(query.keys()), i)) for i in query.cursor]
+        conn.close()
+        return jsonify(result)
+   
     @app.route('/monitoramento', methods=['POST', 'GET', 'DELETE', 'PUT'])
     def monitoramento():
         # origin = request.headers.get('Origin')

@@ -6,17 +6,18 @@ function getData() {
       const tableBody = document
         .getElementById("tabelaMonitoramento")
         .getElementsByTagName("tbody")[0];
-      tableBody.innerHTML = ""; 
+      tableBody.innerHTML = "";
       data.forEach((item) => {
         const row = tableBody.insertRow();
         row.innerHTML = `
-                      <td class="alignItensColumn">${item.id}</td>
-                      <td class="alignItensColumn">${item.temperatura}</td>
-                      <td class="alignItensColumn">${item.umidade}</td>
-                      <td class="alignItensColumn">${item.dispositivo}</td>
-                      <td class="alignItensColumn">${item.luminosidade}</td>
-                      <td class="alignItensColumn">${item.dt_created}</td>
-                  `;
+            <td class="alignItensColumn">${item.id}</td>
+            <td class="alignItensColumn">${item.temperatura}</td>
+            <td class="alignItensColumn">${item.umidade}</td>
+            <td class="alignItensColumn">${item.luminosidade}</td>
+            <td class="alignItensColumn">${item.presenca}</td>
+            <td class="alignItensColumn">${item.distancia}</td>
+            <td class="alignItensColumn">${item.dispositivo}</td>
+          `;
       });
     })
     .catch((error) => console.error("Erro ao obter dados:", error));
